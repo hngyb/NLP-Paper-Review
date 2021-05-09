@@ -4,8 +4,6 @@
 
 ## 0. Before GPT
 
----
-
 - 기존의 deep learning method는 labeled data를 이용하여 학습을 했는데, labeled data를 구하기 힘들다는 문제가 있었다.
 - 대신 unlabeled data를 활용하면 학습에 필요한 시간과 비용을 절약할 수 있다.
 - 하지만 unlabeled data를 이용한 word-level information 이상의 활용이 힘든 이유로 두 가지가 있다.
@@ -13,9 +11,8 @@
     2. 학습된 representation이 target task로 transfer하는 방법이 불분명하다.
 - 작은 적용으로도 광범위한 task에 적용되는 universal representation을 학습하는 GPT 모델을 개발하게 됨.
 
-## 1. What is GPT?
-
 ---
+## 1. What is GPT?
 
 - GPT는 두 가지 단계로 이루어져 있는 semi-supervised model이다.
 
@@ -25,9 +22,8 @@
 
 - Model Architecture로 [Transformer](https://github.com/waterdrag0n/NLP-Paper-Review/tree/master/Transformer)(Decoder)를 사용한다. 다양한 task에 좋은 결과를 내고, 기존의 long term memory dependency(텍스트 길이가 길어질 수록 효과가 떨어지는) 문제를 해결할 수 있기 때문이다.
 
-## 2. Framework
-
 ---
+## 2. Framework
 
 > **Unsupervised Pre-Training**
 
@@ -79,13 +75,12 @@ W_e=token embedding matrix, W_p = position embedding matrix
 ![Improving%20Language%20Understanding%20by%20Generative%20Pre%20e033e74c952d43ce873de7c0f3ef8bb6/Untitled%205.png](images/Untitled%205.png)
 
 - 구조화된 입력을 ordered sequence로 변환해서 pre-trained model을 적용한다.
-- 변환을 할 때는 항상 시작과 끝 토큰인 <s>, <e>를 사용한다.
+- 변환을 할 때는 항상 시작과 끝 토큰인 \<s\>, \<e\>를 사용한다.
 
-⇒ task에 따라서 구조를 바꾸지 않아도 된다.
-
-## 3. Analysis
+=> task에 따라서 구조를 바꾸지 않아도 된다.
 
 ---
+## 3. Analysis
 
 > **Impact of number of layers transferred**
 
@@ -110,6 +105,7 @@ W_e=token embedding matrix, W_p = position embedding matrix
 - Transformer 대신 2048개의 unit으로 구성된 LSTM층을 추가했더니 평균 5.6점의 점수 하락이 있었다.
 - Pre-training을 하지 않은 경우, 모든 task에서 성능 하락이 있었다.
 
+---
 ## 4. Additional
 
 - 기존 모델은 fine-tuning을 할 때 목적에 따라 layer를 더 추가(시간, 비용 추가)해야 했으나, GPT는 필요하지 않다.
@@ -128,8 +124,7 @@ W_e=token embedding matrix, W_p = position embedding matrix
 
     (단) 단어 유사도가 떨어진다.
 
-## 5. References
-
 ---
+## 5. References
 
 [GPT-1 (밑바닥부터 알아보는 GPT 1강)](https://youtu.be/FeEmmylAF0o)
